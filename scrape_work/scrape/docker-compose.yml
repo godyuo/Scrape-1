@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  main:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - febnine-net
+    depends_on:
+      - mysql
+    links:
+      - "mysql:mysqldb"
+    env_file:
+      - .env
+    restart: always
+
+  mysql:
+  
+    container_name: febnine-mysql
+
+    platform: linux/x86_64
+    image: mysql
+    env_file:
+      - .env
+    ports:
+      -  "3306:3306"
+    networks:
+      - febnine-net
+    volumes:
+      - mysql:/var/lib/mysql
+    restart: always
+volumes:
+  mysql:
+networks:
+  febnine-net:
