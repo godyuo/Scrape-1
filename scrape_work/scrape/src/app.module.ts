@@ -3,9 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { NewsModule } from './scrape/news.module';
 import { Scrap } from './scrap/entities';
 import { ScrapModule } from './scrap/scrap.module';
+import { NewsModule } from './news/news.module';
 
 @Module({
   imports: [
