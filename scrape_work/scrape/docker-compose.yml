@@ -28,10 +28,13 @@ services:
       -  "3306:3306"
     networks:
       - febnine-net
+    restart: always
     volumes:
       - mysql:/var/lib/mysql
-    restart: always
+      - ./db/conf.d:/etc/mysql/conf.d
+
 volumes:
   mysql:
 networks:
   febnine-net:
+  

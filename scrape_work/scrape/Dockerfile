@@ -5,12 +5,12 @@ RUN apt-get -qq upgrade --yes
 RUN apt-get -qq install curl --yes
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get -qq install nodejs --yes
+
 RUN apt-get install chromium-browser --yes
+
 WORKDIR /app
 
 COPY package*.json .
-
-
 RUN npm install
 
 COPY . .

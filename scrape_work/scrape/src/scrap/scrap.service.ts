@@ -46,7 +46,6 @@ export class ScrapService {
           where: { Title: el.Title },
         });
 
-        console.log(newsdata);
         if (!newsdata) {
           await this.NewsRepository.save({
             Title: el.Title,
